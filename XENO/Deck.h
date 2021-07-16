@@ -16,6 +16,9 @@ private:
   //カードを格納する場所
 	Card* mp_cards[Card_Max];	
 
+	//  残りの枚数
+	int nokori[11] = { 0,2,2,2,2,2,2,2,2,1,1 };
+
 public:
 	Deck() {
 		for (int i = 0; i < Card_Max; i++)
@@ -48,6 +51,8 @@ public:
 	int Get_card_num_max() { return Card_Max; }
 
 	void ShowDeck();
+
+	int* GetNokori() { return nokori; }
 };
 #endif // !DECK
 

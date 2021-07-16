@@ -29,6 +29,7 @@ void Deck::ShowDeck()
 {
 	if (!mp_cards)return;
 	for (int i = 0; i < deck_card_num; i++) {
+		cout << "y" << i+1 << "z";
 		cout << mp_cards[i]->GetNum() << ":y";
 		cout << mp_cards[i]->GetName() <<"z" << endl;
 	}

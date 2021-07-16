@@ -6,9 +6,14 @@
 
 using namespace std;
 
-bool CreateDeck::Shuffle(Deck* deck,int cn)
+bool CreateDeck::Shuffle(Deck* deck,int cn,int* noko)
 {
     int cardNum = cn;
+    
+
+    for (int i = 0; i < 11; i++) {
+        cout << noko[i] << endl;
+    }
     
     while (true) {
         //1～10までの数値でランダム
@@ -22,13 +27,13 @@ bool CreateDeck::Shuffle(Deck* deck,int cn)
 
         //nokoriの配列分のカードを選別
         for (int i = 1; i <= 10; i++) {
-            if (nokori[i] == 0 )continue;
-            if (nokori[i] > 0)break;
+            if (noko[i] == 0 )continue;
+            if (noko[i] > 0)break;
             flag = true;
         }
 
         //カードの枚数整理
-        if (nokori[randum] == 0)continue;
+        if (noko[randum] == 0)continue;
 
         //ランダムをCrateDeckの_numに代入
         _num = randum;
@@ -74,13 +79,16 @@ bool CreateDeck::Shuffle(Deck* deck,int cn)
         //カード追加
         deck->Add_Card(Create());
 
-        //nokoriのカードをへらす
-        nokori[randum]--;
+        //nokoのカードをへらす
+        *(noko + randum) = *(noko + randum) - 1;
+        
 
         //残りのカード枚数をへらす
         cardNum--;
+
         
-       // cout <<randamu<< nokori[randamu] << endl;
+        
+        //cout <<randum<< nokori[randum] << endl;
         if (flag == true)return true;
     }
     return false;

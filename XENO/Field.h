@@ -31,4 +31,5 @@ private:
 //	プレイヤーの最大人数
 	int _player_max;
 
+
 };

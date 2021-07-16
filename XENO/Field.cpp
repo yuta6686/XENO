@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Deck.h"
 #include "CreateDeck.h"
+#include "Card.h"
 #include "bits/stdc++.h"
 #include "main.h"
 using namespace std;
@@ -43,15 +44,20 @@ void Field::GameMainField()
 	Deck deck;
 	CreateDeck cDeck;
 
-	cDeck.Shuffle(&deck, deck.deck_card_num);
+	cDeck.Shuffle(&deck, deck.deck_card_num,deck.GetNokori());
 
 	while (true) {
 
 		//例）最大プレイヤー人数が４人ー＞p[3].playernum->4
 		switch ((_turn % p[_player_max-1].GetPlayerNum())+1) {
 		case 1:
+			Card * pCard;
 			//カードを引く
-			p[1].DrawCard(&deck);
+			pCard=p[1].DrawCard(&deck);
+
+			//残りカードの調整
+
+			deck.GetNokori()[pCard->GetNum()]--;
 
 			//出すカードを選ぶ
 	

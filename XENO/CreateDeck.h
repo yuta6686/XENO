@@ -16,12 +16,13 @@ public:
 		_name(name),_num(num){}
 	~CreateDeck(){}
 
-	bool Shuffle(Deck* deck, int cn);
-
-
+	bool Shuffle(Deck* deck, int cn,int* noko);
 
 	//カードを作る
 	Card* Create();
+
+
+	
 	
 private:
 	//カード名　(numに応じて決まる)
@@ -29,9 +30,6 @@ private:
 
 	//カードの番号
 	int _num;
-
-	//残りの枚数
-	int nokori[11] = { 0,2,2,2,2,2,2,2,2,1,1 };
 
 	
 };
