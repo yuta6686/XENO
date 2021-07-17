@@ -16,7 +16,7 @@ bool Deck::Add_Card(Card* pCard)
 
 bool Deck::DeleteCard(int index)
 {
-	if (index < 0 || index >= Card_Max)return false;
+	if (index < 0 || index > Card_Max)return false;
 
 	if (mp_cards[index] == nullptr)return false;
 	delete mp_cards[index];

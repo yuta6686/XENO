@@ -45,14 +45,14 @@ Card* Player::PutOutCard(int index)
     _pCard[index] = _pCard[GetHaveCard()];
 
     //_hCard‚ðŒ¸‚ç‚µ‚Ä“o˜^
-    SetHaveCard(GetHaveCard()-1);
+    _hCard--;
 
     return _pCard[index];
 }
 
 Card* Player::DrawCard(Deck* deck)
 {
-    if (deck->deck_card_num <= 0 || deck->deck_card_num >= deck->Get_card_num_max())
+    if (deck->deck_card_num <= 0 || deck->deck_card_num > deck->Get_card_num_max())
         return nullptr;
 
     Card* card = deck->GetCard(deck->deck_card_num);
@@ -62,4 +62,13 @@ Card* Player::DrawCard(Deck* deck)
     deck->deck_card_num--;
 
     return card;
+}
+
+void Player::ShowHand()
+{
+    cout << _player_num << "”Ô–Ú‚ÌŽèŽD" << endl;
+    for (int i = 0; i < _hCard; i++) {
+        cout << _pCard[i]->GetNum() << ":y";
+        cout << _pCard[i]->GetName() << "z" << endl;
+    }
 }

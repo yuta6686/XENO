@@ -10,11 +10,6 @@ bool CreateDeck::Shuffle(Deck* deck,int cn,int* noko)
 {
     int cardNum = cn;
     
-
-    for (int i = 0; i < 11; i++) {
-        cout << noko[i] << endl;
-    }
-    
     while (true) {
         //1`10‚Ü‚Å‚Ì”’l‚Åƒ‰ƒ“ƒ_ƒ€
         int randum = (rand() % 10) + 1;

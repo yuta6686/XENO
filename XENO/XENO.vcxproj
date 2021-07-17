@@ -148,6 +148,7 @@
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="prepare.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h" />

@@ -56,6 +56,8 @@ public:
 //			山札のカードを一枚減らす
 	Card* DrawCard(Deck* deck);
 
+	void ShowHand();
+
 	int GetPlayerNum() { return _player_num; }
 	int GetHaveCard() { return _hCard; }
 	int GetCardMax() { return _card_max; }

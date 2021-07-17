@@ -5,6 +5,7 @@
 #include "Card.h"
 #include "bits/stdc++.h"
 #include "main.h"
+#include "prepare.h"
 using namespace std;
 
 
@@ -40,12 +41,38 @@ void Field::GameMainField()
 		p[i].SetPlayerNum(i + 1);
 	}
 
-	//Prepareがはいる
+	//プレイヤーの名前をいれるとかもいい
+
+	
 	Deck deck;
 	CreateDeck cDeck;
 
-	cDeck.Shuffle(&deck, deck.deck_card_num,deck.GetNokori());
+	//Prepareがはいる
+	Prepare pre(_player_max);
 
+	//pre.MainPrepare(p, &deck, &cDeck);
+		//山札シャッフル
+
+	cDeck.Shuffle(&deck, deck.deck_card_num, deck.GetNokori());
+	deck.ShowDeck();
+
+
+	//人数分カードを手札に加える
+	for (int i = 0; i < GetPlayerMax(); i++) {
+		if (!p.at(i).AddHandCard(p.at(i).DrawCard(&deck)))
+		{
+			cout << "だめでした" << endl;
+			return;
+		}
+	}
+
+
+	//人数分のカードを表示
+	for (int i = 0; i < GetPlayerMax(); i++) {
+		p.at(i).ShowHand();
+	}
+
+#ifdef TURN
 	while (true) {
 
 		//例）最大プレイヤー人数が４人ー＞p[3].playernum->4
@@ -79,4 +106,5 @@ void Field::GameMainField()
 		
 		_turn++;
 	}
+#endif //TURN
 }

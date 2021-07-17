@@ -12,3 +12,5 @@
 #define all(x) (x).begin(),(x).end()
 #define PI 3.14159265358979323846264338327950L
 #define RADIAN PI/180.0
+
+//#define  TURN
