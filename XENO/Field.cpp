@@ -33,12 +33,13 @@ void Field::GameMainField()
 	//プレイヤーの最大人数設定
 	_player_max = InputPlayerMax();
 
+	Player* p[4];
+	for (int i = 0; i < 4; i++) {
+		p[i] = nullptr;
+	}
 	//人数分のプレイヤーのメモリ確保
-	vector<Player> p(_player_max);
-
-	//それぞれのプレイヤーに１～４の番号を割り当てる
-	rep(i, 0, _player_max) {
-		p[i].SetPlayerNum(i + 1);
+	for (int i = 0; i < _player_max; i++) {
+		p[i] = CreatePlayer(i);
 	}
 
 	//プレイヤーの名前をいれるとかもいい
@@ -59,7 +60,7 @@ void Field::GameMainField()
 
 	//人数分カードを手札に加える
 	for (int i = 0; i < GetPlayerMax(); i++) {
-		if (!p.at(i).AddHandCard(p.at(i).DrawCard(&deck)))
+		if (!p[i]->AddHandCard(p[i]->DrawCard(&deck)))
 		{
 			cout << "だめでした" << endl;
 			return;
@@ -69,7 +70,7 @@ void Field::GameMainField()
 
 	//人数分のカードを表示
 	for (int i = 0; i < GetPlayerMax(); i++) {
-		p.at(i).ShowHand();
+		p[i]->ShowHand();
 	}
 
 #ifdef TURN
@@ -107,4 +108,9 @@ void Field::GameMainField()
 		_turn++;
 	}
 #endif //TURN
+}
+
+Player* Field::CreatePlayer(int index)
+{
+	return new Player(index);
 }
