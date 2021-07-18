@@ -26,11 +26,12 @@ int Player::SelectCard(int _first, int _second)
 
 bool Player::AddHandCard(Card* pCard)
 {
+    if (!pCard)return false;
     if (_hCard >= _card_max) {
         return false;
     }
-
-    _pCard[_hCard++] = pCard;
+    _pCard[_hCard] = new Card(pCard->GetName(), pCard->GetNum());
+    _hCard++;
     return true;
 }
 
@@ -55,13 +56,18 @@ Card* Player::DrawCard(Deck* deck)
     if (deck->deck_card_num <= 0 || deck->deck_card_num > deck->Get_card_num_max())
         return nullptr;
 
-    Card* card = deck->GetCard(deck->deck_card_num);
+    deck->deck_card_num--;
+
+    Card card(deck->GetCard(deck->deck_card_num)->GetName(),
+        deck->GetCard(deck->deck_card_num)->GetNum());
+
+    if (deck->GetCard(deck->deck_card_num) == nullptr)return nullptr;
 
     deck->DeleteCard(deck->deck_card_num);
 
-    deck->deck_card_num--;
+    //cout<<card->GetName()<<card->GetNum()<<endl;
 
-    return card;
+    return &card;
 }
 
 void Player::ShowHand()

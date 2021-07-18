@@ -62,7 +62,7 @@ void Field::GameMainField()
 	for (int i = 0; i < GetPlayerMax(); i++) {
 		if (!p[i]->AddHandCard(p[i]->DrawCard(&deck)))
 		{
-			cout << "‚¾‚ß‚Å‚µ‚½" << endl;
+			cout << "ƒJ[ƒh‚ðŽèŽD‚É‰Á‚¦‚ç‚ê‚Ü‚¹‚ñ‚Å‚µ‚½" << endl;
 			return;
 		}
 	}

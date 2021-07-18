@@ -29,6 +29,9 @@ public:
 	std::string GetName(){ return _name; }
 	int GetNum(){ return _num; }
 
+	void SetName(std::string name) { _name = name; }
+	void SetNum(int num) { _num = num; }
+
   //ƒƒ“ƒoŠÖ”
 	virtual void effect(int _num){}
 };
