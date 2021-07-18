@@ -73,6 +73,8 @@ void Field::GameMainField()
 		p[i]->ShowHand();
 	}
 
+	deck.ShowDeck();
+
 #ifdef TURN
 	while (true) {
 

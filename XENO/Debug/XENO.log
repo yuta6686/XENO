@@ -1,3 +1,4 @@
-﻿  Player.cpp
-C:\Users\yuta2\source\repos\XENO\XENO\Player.cpp(70): warning C4172: ローカル変数またはテンポラリのアドレスを返します: card
+﻿  Field.cpp
+C:\Users\yuta2\source\repos\XENO\XENO\main.h(9,1): warning C4005: 'rep': マクロが再定義されました。
+C:\Users\yuta2\source\repos\XENO\XENO\main.h(8): message : 'rep' の以前の定義を確認してください
   XENO.vcxproj -> C:\Users\yuta2\source\repos\XENO\Debug\XENO.exe

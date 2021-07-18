@@ -10,7 +10,9 @@ class Player;
 class Field {
 public:
 	Field():_turn(0),_player_max(2){}
-	~Field(){}
+	~Field(){
+
+	}
 
 	int InputPlayerMax();
 
@@ -31,7 +33,6 @@ private:
 	int _turn = 0;
 
 //	プレイヤーの最大人数
-	int _player_max;
-
+	 int _player_max;
 
 };

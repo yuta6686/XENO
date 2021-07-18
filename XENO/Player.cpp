@@ -30,7 +30,7 @@ bool Player::AddHandCard(Card* pCard)
     if (_hCard >= _card_max) {
         return false;
     }
-    _pCard[_hCard] = new Card(pCard->GetName(), pCard->GetNum());
+    _pCard[_hCard] = pCard;
     _hCard++;
     return true;
 }
@@ -58,8 +58,8 @@ Card* Player::DrawCard(Deck* deck)
 
     deck->deck_card_num--;
 
-    Card card(deck->GetCard(deck->deck_card_num)->GetName(),
-        deck->GetCard(deck->deck_card_num)->GetNum());
+    int num = deck->GetCard(deck->deck_card_num)->GetNum();
+    string name = deck->GetCard(deck->deck_card_num)->GetName();
 
     if (deck->GetCard(deck->deck_card_num) == nullptr)return nullptr;
 
@@ -67,7 +67,7 @@ Card* Player::DrawCard(Deck* deck)
 
     //cout<<card->GetName()<<card->GetNum()<<endl;
 
-    return &card;
+    return new Card(name, num);
 }
 
 void Player::ShowHand()
